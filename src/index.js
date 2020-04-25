@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Landing from './Screens/Landing';
 import * as serviceWorker from './serviceWorker';
+import 'rsuite/dist/styles/rsuite-default.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Landing />
   </React.StrictMode>,
   document.getElementById('root')
 );
