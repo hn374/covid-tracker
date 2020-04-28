@@ -18,9 +18,9 @@ class Landing extends Component {
         return (
             <div className="container">
                 <Router>
-                        <div>
+                        <div className="flex-container">
                             <div className="sidebar">
-                                <Sidenav appearance="inverse">
+                                <Sidenav>
                                     <Sidenav.Body>
                                         <Nav>
                                             <Nav.Item eventKey="1" icon={<Icon icon="home" />}>
