@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Landing from './Screens/Landing';
+import Landing from './screens/Landing';
 import * as serviceWorker from './serviceWorker';
 import 'rsuite/dist/styles/rsuite-default.css'
 
