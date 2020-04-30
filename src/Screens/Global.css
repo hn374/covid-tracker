@@ -1,4 +1,9 @@
 .header {
     text-align: center;
     color: black;
+    margin-bottom: 40px;
+}
+
+.container {
+    /* display: flex; */
 }

@@ -43,13 +43,15 @@ class Global extends Component {
     render() {
         return(
             <div>
-                <h2 className="header">Global</h2>
-                <GlobalData title="New Confirmed Cases:" data={ this.state.newCases }/>
-                <GlobalData title="Total Confirmed Cases:" data={ this.state.totalCases }/>
-                <GlobalData title="New Deaths:" data={ this.state.newDeaths }/>
-                <GlobalData title="Total Deaths:" data={ this.state.totalDeaths }/>
-                <GlobalData title="New Recovered:" data={ this.state.newRecovered }/>
-                <GlobalData title="Total Recovered:" data={ this.state.totalRecovered }/>
+                <h2 className="header">Global Cases</h2>
+                <div className="container">
+                    <GlobalData title="New Confirmed Cases:" data={ this.state.newCases }/>
+                    <GlobalData title="Total Confirmed Cases:" data={ this.state.totalCases }/>
+                    <GlobalData title="New Deaths:" data={ this.state.newDeaths }/>
+                    <GlobalData title="Total Deaths:" data={ this.state.totalDeaths }/>
+                    <GlobalData title="New Recovered:" data={ this.state.newRecovered }/>
+                    <GlobalData title="Total Recovered:" data={ this.state.totalRecovered }/>
+                </div>
             </div>
         );
     }
