@@ -1,6 +1,6 @@
 // External libraries
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../utils/axios';
 
 // Internal files
 import './Global.css';
@@ -25,8 +25,18 @@ class Global extends Component {
     }
 
     getDisplayData() {
-        axios.get('http://localhost:3400/getGlobalData').then(res => {
-            console.log(res);
+        axios.get('/getGlobalData').then(res => {
+            this.setState({
+                newCases: res.data.NewConfirmed,
+                totalCases: res.data.TotalConfirmed,
+                newDeaths: res.data.NewDeaths,
+                totalDeaths: res.data.TotalDeaths,
+                newRecovered: res.data.NewRecovered,
+                totalRecovered: res.data.TotalRecovered
+            });
+        })
+        .catch(function (error) {
+            console.log("Axios request failed with following error: ", error);
         });
     }
 
@@ -34,12 +44,12 @@ class Global extends Component {
         return(
             <div>
                 <h2 className="header">Global</h2>
-                <GlobalData title="New Confirmed Cases:"/>
-                <GlobalData title="Total Confirmed Cases:"/>
-                <GlobalData title="New Deaths:"/>
-                <GlobalData title="Total Deaths:"/>
-                <GlobalData title="New Recovered:"/>
-                <GlobalData title="Total Recovered:"/>
+                <GlobalData title="New Confirmed Cases:" data={ this.state.newCases }/>
+                <GlobalData title="Total Confirmed Cases:" data={ this.state.totalCases }/>
+                <GlobalData title="New Deaths:" data={ this.state.newDeaths }/>
+                <GlobalData title="Total Deaths:" data={ this.state.totalDeaths }/>
+                <GlobalData title="New Recovered:" data={ this.state.newRecovered }/>
+                <GlobalData title="Total Recovered:" data={ this.state.totalRecovered }/>
             </div>
         );
     }

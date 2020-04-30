@@ -8,8 +8,7 @@ import Countries from './Countries.js';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
 import { Sidenav, Nav, Icon } from 'rsuite';
 
@@ -23,14 +22,14 @@ class Landing extends Component {
                                 <Sidenav>
                                     <Sidenav.Body>
                                         <Nav>
-                                            <Nav.Item eventKey="1" icon={<Icon icon="home" />}>
-                                                <Link to="/">Home</Link>
+                                            <Nav.Item href="/" eventKey="1" icon={<Icon icon="home" />}>
+                                                Home
                                             </Nav.Item>
-                                            <Nav.Item eventKey="2" icon={<Icon icon="dashboard" />}>
-                                                <Link to="/global">Global</Link>
+                                            <Nav.Item href="/global" eventKey="2" icon={<Icon icon="dashboard" />}>
+                                                Global
                                             </Nav.Item>
-                                            <Nav.Item eventKey="3" icon={<Icon icon="group" />}>
-                                                <Link to="/countries">Countries</Link>
+                                            <Nav.Item href="/countries" eventKey="3" icon={<Icon icon="group" />}>
+                                                Countries
                                             </Nav.Item>
                                         </Nav>
                                     </Sidenav.Body>

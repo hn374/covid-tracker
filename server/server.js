@@ -21,8 +21,7 @@ app.get('/', (req, res) => {
 app.get('/getGlobalData', (req, res) => {
     axios.get('https://api.covid19api.com/summary')
     .then(data => {
-        // res.send(data);
-        console.log(data);
+        res.send(data.data.Global);
     })
     .catch(error => {
         console.log(error);
