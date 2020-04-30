@@ -1,12 +1,30 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3400;
+const axios = require('axios');
+const cors = require('cors'); 
+const path = require('path');
 
-app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
+const app = express();
+// const port = process.env.PORT || 3400;
+const port = 3400;
+
+app.listen(port, () => console.log(`APP LISTENING AT http://localhost:${port}`))
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/landing.js'));
+    // res.sendFile(path.join(__dirname + 'landing.js')); // Have to fix link
+    res.send("Hello World");
+});
+
+app.get('/getGlobalData', (req, res) => {
+    axios.get('https://api.covid19api.com/summary')
+    .then(data => {
+        // res.send(data);
+        console.log(data);
+    })
+    .catch(error => {
+        console.log(error);
+    });
 });
