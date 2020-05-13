@@ -5,6 +5,7 @@ import axios from '../utils/axios';
 // Internal files
 import './Global.css';
 import GlobalData from '../components/globalData.js';
+import { formatNumber } from '../services/Number.js';
 
 class Global extends Component {
     constructor(props) {
@@ -27,12 +28,12 @@ class Global extends Component {
     getDisplayData() {
         axios.get('/getGlobalData').then(res => {
             this.setState({
-                newCases: res.data.NewConfirmed,
-                totalCases: res.data.TotalConfirmed,
-                newDeaths: res.data.NewDeaths,
-                totalDeaths: res.data.TotalDeaths,
-                newRecovered: res.data.NewRecovered,
-                totalRecovered: res.data.TotalRecovered
+                newCases: formatNumber(res.data.NewConfirmed),
+                totalCases: formatNumber(res.data.TotalConfirmed),
+                newDeaths: formatNumber(res.data.NewDeaths),
+                totalDeaths: formatNumber(res.data.TotalDeaths),
+                newRecovered: formatNumber(res.data.NewRecovered),
+                totalRecovered: formatNumber(res.data.TotalRecovered)
             });
         })
         .catch(function (error) {
@@ -45,12 +46,12 @@ class Global extends Component {
             <div>
                 <h2 className="header">Global Cases</h2>
                 <div className="container">
-                    <GlobalData title="New Confirmed Cases:" data={ this.state.newCases }/>
-                    <GlobalData title="Total Confirmed Cases:" data={ this.state.totalCases }/>
-                    <GlobalData title="New Deaths:" data={ this.state.newDeaths }/>
-                    <GlobalData title="Total Deaths:" data={ this.state.totalDeaths }/>
-                    <GlobalData title="New Recovered:" data={ this.state.newRecovered }/>
-                    <GlobalData title="Total Recovered:" data={ this.state.totalRecovered }/>
+                    <GlobalData className="globalDataComponent" title="New Confirmed Cases:" data={ this.state.newCases }/>
+                    <GlobalData className="globalDataComponent" title="New Deaths:" data={ this.state.newDeaths }/>
+                    <GlobalData className="globalDataComponent" title="New Recovered:" data={ this.state.newRecovered }/>
+                    <GlobalData className="globalDataComponent" title="Total Confirmed Cases:" data={ this.state.totalCases }/>
+                    <GlobalData className="globalDataComponent" title="Total Deaths:" data={ this.state.totalDeaths }/>
+                    <GlobalData className="globalDataComponent" title="Total Recovered:" data={ this.state.totalRecovered }/>
                 </div>
             </div>
         );
