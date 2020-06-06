@@ -6,9 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import 'rsuite/dist/styles/rsuite-default.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Landing />
-  </React.StrictMode>,
+    <Landing />,
   document.getElementById('root')
 );
 

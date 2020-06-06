@@ -27,3 +27,25 @@ app.get('/getGlobalData', (req, res) => {
         console.log(error);
     });
 });
+
+app.get('/getCountries', (req, res) => {
+    axios.get('https://api.covid19api.com/countries')
+    .then(data => {
+        countries = [];
+
+        for (country in data.data) {
+            countryObject = {};
+            countryObject["label"] = data.data[country].Country;
+            countryObject["value"] = data.data[country].Country;
+            
+            countries.push(countryObject);
+
+            // countries.push(data.data[country].Country);
+        }
+
+        res.send(countries)
+    })
+    .catch(error => {
+        console.log(error);
+    });
+});
